@@ -1,0 +1,25 @@
+
+<body>
+<h1>{{ case.description }}</h1>
+<ul>
+	<li>{{case.created_time}}</li>
+	<li>{{case.action}}</li>
+	<li>{{case.cost}}</li>
+	<li>{{case.approved}}</li>
+	<li>{{case.comment}}</li>
+</ul>
+<br>
+<br>
+<form action = "{% url 'PMO:authorise' case.id %}" method = "post">
+	{% csrf_token %}
+	Comment:<br>
+	<input type = "text" name = "comment"><br><br>
+	<input type = "radio" name = "approved" value = "approve"> Approve<br>
+	<input type = "radio" name = "approved" value = "reject"> Reject<br><br>
+	
+	<input type = "submit" value="authorise">
+</form>
+<br>
+<br>
+	
+</body>

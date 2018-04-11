@@ -1,0 +1,11 @@
+{% if latest_case_list %}
+    <ul>
+    {% for case in latest_case_list %}
+        <li><a href="{% url 'PMO:detail' case.id %}">{{ case.description }}</a>
+		
+		</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No case available.</p>
+{% endif %}
